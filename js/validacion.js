@@ -19,22 +19,36 @@ function ningunoVacio(){
 
 document.getElementById("regBtn").addEventListener("click", function () {
     // Validación: ningún campo vacío y contraseñas iguales
-    if (ningunoVacio()) {
+    if (ningunoVacio() && validarPasswordsIguales() && validarLongitudPassword()) {
         showAlertSuccess();
     } else {
+        setTimeout(function () {
+        console.log('Han pasado 3 segundos');
+         }, 3000);
         showAlertError();
     }
+    location.reload(true);
 });
 function validarPasswordsIguales() {
     const password1 = document.getElementById('password1').value;
     const password2 = document.getElementById('password2').value;
 
     if (password1 === password2) {
-      alert('Las contraseñas coinciden');
       return true;
     } else {
-      alert('Las contraseñas no coinciden');
+      
       return false;
     }
+}
+
+function validarLongitudPassword() {
+  const password1 = document.getElementById('password1').value;
+
+  if (password1.length >= 6) {
+    return true;
+  } else {
+
+    return false;
+  }
 }
 
