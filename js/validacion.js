@@ -22,12 +22,12 @@ document.getElementById("regBtn").addEventListener("click", function () {
     if (ningunoVacio() && validarPasswordsIguales() && validarLongitudPassword()) {
         showAlertSuccess();
     } else {
-        setTimeout(function () {
-        console.log('Han pasado 3 segundos');
-         }, 3000);
         showAlertError();
     }
-    location.reload(true);
+    setTimeout(function () {
+        console.log('Han pasado 3 segundos');
+        location.reload(true);
+         }, 5000);
 });
 function validarPasswordsIguales() {
     const password1 = document.getElementById('password1').value;
